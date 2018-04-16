@@ -1,6 +1,7 @@
 # wx-small-routine
 #### 小程序项目包括页面有职位列表页、搜索结果页、职位详情页、我的页面、职业档案页、我的订阅页、投递反馈页、登录注册页<br>  
-用到的api有 发起请求wx.request， 网络状态wx.getNetworkType， 扫码wx.scanCode， 界面的wx.showToast、wx.setNavigationBarTitle、wx.setTabBarBadge、wx.setTopBarText、跳转wx.navigateTo、wx.switchTab、wx.navigateBack、下拉刷新wx.startPullDownRefresh、登录相关wx.login、 wx.checkSession、转发相关onShareAppMessage、wx.showShareMenu等等 <br>  
+用到的api有：<br> 
+发起请求wx.request， 网络状态wx.getNetworkType， 扫码wx.scanCode， 界面的wx.showToast、wx.setNavigationBarTitle、wx.setTabBarBadge、wx.setTopBarText、跳转wx.navigateTo、wx.switchTab、wx.navigateBack、下拉刷新wx.startPullDownRefresh、登录相关wx.login、 wx.checkSession、转发相关onShareAppMessage、wx.showShareMenu等等 <br>  
 ###### 职位列表页
 ![职位列表页](https://github.com/zhangmerry/wx-small-routine/blob/master/img/%E8%81%8C%E4%BD%8D%E5%88%97%E8%A1%A8%E9%A1%B5.png)<br>  
 ###### 搜索结果页
