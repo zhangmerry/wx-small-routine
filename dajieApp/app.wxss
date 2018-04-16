@@ -1,0 +1,127 @@
+/**app.wxss**/
+@import "./showToast/showToast.wxss";
+page {
+  background-color:#fafafa;
+}
+.container {
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64rpx 0;
+  box-sizing: border-box;
+  min-height:100%;
+  height: auto;
+  background: #F6F7F8;
+  position:absolute;
+  top:0;
+  left:0;
+}
+.container.paddingNone{
+    padding:0;
+}
+button::after{
+  border:none;
+}
+
+.user-top-box{
+  width: 100%;
+  background-color: #00B6D7;
+  height: auto;
+  padding: 50rpx 0;
+}
+.topImg{
+  width: 114rpx;
+  height: 116rpx;
+    padding:0rpx 318rpx;
+    margin-bottom: 25rpx;
+}
+.loginImg-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.user-name,.user-bottom{
+  padding: 0 5%;
+  text-align: center;
+}
+.user-name .name-text{
+  font-weight: 600;
+  color: #fff;
+  font-size: 34rpx;
+  line-height: 60rpx;
+  width: 100%;
+  text-align: center;
+  display: block;
+  padding: 0;
+}
+.user-bottom .commpany-text,
+.user-bottom .job-text,
+.user-bottom .dep-text{
+  display: inline-block;
+  font-size: 26rpx;
+  line-height: 30rpx;
+  /*padding:0rpx 10rpx 0rpx 0;*/
+  color: #fff;
+  /*border-right:0.5rpx solid rgba(255,255,255,0.5);*/
+  /*margin-right:10rpx;*/
+}
+.user-bottom .last{
+  border:none;
+}
+.center-line{
+  color: rgba(255,255,255,0.5);
+  display: inline-block;
+  font-size: 26rpx;
+  margin: 0 3%;
+}
+.loadmore {
+  text-align: center;
+  margin: 20rpx auto;
+  color: #00B6D7;
+  font-size:32rpx;
+
+}
+.noList {
+  font-size: 30rpx;
+  color: #999;
+  margin-top: 200rpx;
+  text-align: center;
+}
+/*吸底*/
+.bottomFixed{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #F1FDFF;
+  padding: 36rpx 0;
+}
+.bottomFixed .appEwm{
+  position: absolute;
+  left: 30rpx;
+  top: -36rpx;
+  width: 172rpx;
+  height: 172rpx;
+}
+.b_f_content {
+  color: #27BCD9;
+  font-size: 30rpx;
+  margin: 0 121rpx 0 222rpx;
+}
+.bottomFixed .b_f_content image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+  vertical-align: top;
+}
+.b_f_content text {
+  line-height: 45rpx;
+}
+.bottomFixed .dj_logo {
+  position: absolute;
+  right: 20rpx;
+  top:36rpx;
+  width: 80rpx;
+  height: 80rpx;
+}

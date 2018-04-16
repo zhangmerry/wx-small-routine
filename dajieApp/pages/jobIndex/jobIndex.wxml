@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<import src="../../showToast/showToast.wxml"/>
+<template is="showToast" data="{{showToast: showToast}}"></template>
+<view class="wrapper">
+	<view class="search-wrap">
+		<view class="search-bg">
+			<icon class="" type="search" color="white" size="14"></icon>
+			<input placeholder-style="font-size: 28rpx;color: #fff;opacity:0.5;line-height: 60rpx;"  placeholder="搜索职位" name="keyWord" type="text" value="{{keyword}}" bindconfirm="searchSubmit"/>
+		</view>
+	</view>
+
+	<!-- <view class="select-wrap t-flex-wrap">
+		<view class="select-item t-flex-item">
+			职位类型
+			<image src="/images/icon_screenarrow_normal.png"></image>
+		</view>
+		<view class="select-item t-flex-item">
+			城市
+			<image src="/images/icon_screenarrow_normal.png"></image>
+		</view>
+		<view class="select-item t-flex-item">
+		薪资（元）
+			<image src="/images/icon_screenarrow_normal.png"></image>
+		</view>
+	</view> -->
+
+	<view>
+	  <!-- <view wx:if="{{jobList<=0 && !loadingMore}}" class="noList">抱歉，没有职位。</view> -->
+	  <view class="job-list">
+		  <block wx:for-items="{{jobList}}" wx:key="{{item.jid}}">
+		  	<view bindtap="toDetailPage" class="navigator" data-bid="{{item.jid}}">
+		  		<view>
+		  			<view class="logo"><image src="{{item.corpLogo}}"></image></view>
+		  			<view class="money">{{item.salary}}</view>
+		  			<view class="content">
+		  				<view class="title">
+		  					<text>{{item.jobName}}</text>
+		  					<!-- <image class="dIcon {{item.isjp ? '' : 'noneView'}}" src="/images/icon_top@3x.png"></image>
+	  						<image class="jpIcon {{item.isd ? '' : 'noneView'}}" src="/images/icon_jipin@3x.png"></image> -->
+		  				</view>
+		  				<view class="company">
+		  					<text>{{item.corpName}}</text>
+		  					<!-- <image class="corpIcon {{item.iscorp ? '' : 'noneView'}}" src="/images/icon_vip@3x.png"></image> -->
+		  				</view>
+		  				<view class="other">
+		  					<text wx:if="{{item.cityNames.length>0}}">{{item.cityNames}}</text>
+		  					<text>{{item.degree}}</text>
+		  					<text>{{item.experience}}</text>
+		  				</view>
+		  			</view>
+		  		</view>
+		  		<!-- <image class="jp {{item.isJpBg ? '' : 'noneView'}}" src="/images/icon_jipincorner@3x.png"></image> -->
+		  	</view>
+		  </block>
+	  </view>
+	</view>
+</view>
+<loading hidden="{{!loadingMore}}">正在加载</loading>
+
+
+
+
+
+
+
+

@@ -1,0 +1,110 @@
+/**login.wxss**/
+.loginImg{
+	width:200rpx;
+	height:120rpx;
+}
+.loginImg-img {
+	width:100%;
+	height:100%;
+	border-radius: 0;
+}
+.page-body{
+	width:100%;
+	height:	90rpx;
+	margin-top:60rpx;
+}
+.page-body .btn-area{
+	width:100%;
+	display:-webkit-box;
+}
+.page-body .tabItem{
+	-webkit-box-flex:1;
+}
+.page-body .tabItem button{
+	border:none;
+	font-size:34rpx;
+	color: #A4A5A5;
+	background:none;
+	border-bottom:3rpx solid #F6F7F8;
+	border-radius:0px;
+	line-height:90rpx;
+}
+.page-body .tabItem.click button{
+	border-bottom-color:#00B6D7;
+	color:#00B6D7;
+}
+button::after{
+	border:none;
+}
+.page-section{
+	width:100%;
+	height:auto;
+	margin-top:0rpx;
+	background:#fff;
+}
+.weui-input{
+	height:100rpx;
+	font-size:30rpx;
+	padding-right:5%;
+}
+.weui-cell_input{
+	margin:0 0 0 5%;
+}
+.weui-user{
+	border-bottom:0.5rpx solid #ebebeb;
+}
+.weui-code input{
+	width:65%;
+	float:left;
+}
+.weui-code button{
+	color: #00B6D7;
+	font-size:30rpx;
+	width:30%;
+	line-height:100rpx;
+	background:none;
+	border-left:0.5rpx solid #ebebeb;
+	border-radius:0;
+}
+.page-password{
+	margin-top:	20rpx;
+}
+.page-body .btn-area#buttonContainer{
+	margin:0 5%;
+	width:90%;
+}
+#buttonContainer button[type="primary"]{
+	background: #00B6D7;
+	border-radius: 4px;
+	padding:0;
+	display:block;
+	width:100%;
+}
+.page-section .weui-user-icon-img{
+	display:inline-block;
+	width:48rpx;
+	height:48rpx;
+	float:left;
+	margin:27rpx 14rpx 0 0;
+}
+.weui-user-icon input{
+	width:auto;
+}
+.placeholderTextColor{
+	color:#bbb;
+}
+.view_hide{
+	display: none;
+}
+.weui-buttom-tip{
+	text-align: center;
+	font-size: 14px;
+	color: #999;
+	padding-top: 30rpx;
+}
+form{
+	width: 100%;
+}
+.weui-code button.fcolor{
+	color: #666;
+}

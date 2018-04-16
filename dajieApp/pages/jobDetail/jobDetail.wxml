@@ -1,0 +1,157 @@
+<!--pages/jobDetail/jobDetail.wxml-->
+<import src="../../showToast/showToast.wxml"/>
+<template is="showToast" data="{{showToast: showToast}}"></template>
+<view class="container paddingNone" wx:if="{{!loadingMore && loadingMore != null}}">
+<view class="p-wrap p-job-detial fulltime">
+    <view class="job-wrap job-headerInfo">
+        <view class="clearFix">
+            <view class="left">
+                <view class="dt">
+                    <view class="jobName">{{data.jobInfo.jobName}}</view>
+                    <view class="salary">{{data.jobInfo.salary}}</view>
+                </view>
+                <view class="company">{{data.jobInfo.corpName}}</view>
+            </view>
+            <view class="right">{{data.jobInfo.createDate}}</view>
+        </view>
+        <view class="job-need">
+            <view class="city" wx:if="{{data.jobInfo.cityName}}">
+                <view class="icon">
+                    <image style="" mode="" src="../../images/icon_pos01@3x.png" binderror="" bindload=""></image>
+                </view>{{data.jobInfo.cityName}}
+            </view>
+            <view class="workexp" style="{{data.jobInfo.isFullTime || data.jobInfo.isIntern ? '' : 'display:none'}}">
+                <view class="icon">
+                    <image style="" mode="" src="../../images/icon_exp@3x.png" binderror="" bindload=""></image>
+                </view>{{data.jobInfo.experienceName}}
+            </view>
+            <view class="degree"  style="{{data.jobInfo.isFullTime || data.jobInfo.isIntern ? '' : 'display:none'}}">
+                <view class="icon">
+                    <image style="" mode="" src="../../images/icon_edu@3x.png" binderror="" bindload=""></image>
+                </view>{{data.jobInfo.degreeName}}
+            </view>
+            <view class="num" style="{{data.jobInfo.isPartTime ? '' : 'display:none'}}">
+                <view class="icon">
+                    <image style="" mode="" src="../../images/icon_per@3x.png" binderror="" bindload=""></image>
+                </view>{{data.jobInfo.headCount}}
+            </view>
+            <view class="way" style="{{data.jobInfo.isPartTime ? '' : 'display:none'}}">
+                <view class="icon">
+                    <image style="" mode="" src="../../images/icon_wallet@3x.png" binderror="" bindload=""></image>
+                </view>{{data.jobInfo.salarySettling}}
+            </view>
+        </view>
+        <view class="job-tags">
+            <block wx:for="{{data.jobInfo.keywords}}">
+                <view>{{item}}</view>
+            </block>
+        </view>
+        <view class="divline">
+        </view>
+        <view class="flex-box hrInfo">
+            <view class="hrHeaderImg male">
+                <view>
+                    <image style="" mode="" src="{{data.hrInfo.avatar}}" binderror="" bindload=""></image>
+                </view>
+            </view>
+            <view class="middle">
+                <view class="name">
+                    <view class="personName">{{data.hrInfo.name}}</view>
+                    <view>
+                        <image class="{{data.hrInfo.isBussinessUser ? '' : 'noBussinessUser'}}" mode="" src="{{data.hrInfo.isBussinessUser ? '../../images/tag_gongshangofficial@3x.png' : '../../images/tag_official@3x.png'}}" binderror="" bindload=""></image>
+                    </view>
+                </view>
+                <view class="corp">{{data.hrInfo.position}}</view>
+                <view class="info">
+                    <view class="info-text">
+                        <view class="text">在招职位</view>
+                        <view class="nump">{{data.hrInfo.jobCnt}}</view>
+                    </view>
+                    <view class="info-text">
+                        <view class="text">简历处理率</view>
+                        <view class="nump">{{data.hrInfo.resumeHandle}}%</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+    <view class="job-wrap">
+        <view class="title">职位描述</view>
+        <view class="job-detail"><text>{{data.jobInfo.intro}}</text>
+        </view>
+        <!-- <view class="divline" wx:if="{{!isUnfold}}"></view>
+        <view href="" class="openBtn"  wx:if="{{!isUnfold}}" bindtap="getAutoHeight">
+            展开信息
+            <view>
+                <image style="" mode="" src="../../images/tri_open@3x.png" binderror="" bindload=""></image>
+            </view>
+        </view> -->
+    </view>
+    <view class="job-wrap">
+        <view href="#companyUrl">
+            <view class="flex-box center corpInfo">
+                <view class="corpLogo">
+                     <image style="" mode="" src="{{data.corpInfo.corpLogo}}" binderror="" bindload=""></image>
+                </view>
+                <view class="middle">
+                    <view class="name vip">
+                        <view>{{data.corpInfo.corpName}}</view>
+                        <view  wx:if="{{data.corpInfo.isBusinessCorp}}">
+                            <image style="" mode="" src="../../images/icon_vip@3x.png" binderror="" bindload=""></image>
+                        </view>
+                    </view>
+                    <view class="info">
+                        <view>{{data.corpInfo.industryName}}</view>
+                        <view wx:if="{{data.corpInfo.industryName && data.corpInfo.corpScale}}">｜</view>
+                        <view>{{data.corpInfo.corpScale}}</view>
+                        <view wx:if="{{(data.corpInfo.corpScale && data.corpInfo.qualityName) || (data.corpInfo.industryName && data.corpInfo.qualityName)}}">｜</view>
+                        <view>{{data.corpInfo.qualityName}}</view>
+                    </view>
+                </view>
+                <view class="arrow">
+                </view>
+            </view>
+        </view>
+        <view class="divline">
+        </view>
+        <view href="/up/dj-mobile/m-dajie/jobInfo/demo/mapjob.html">
+            <view class="workcity">
+                <view class="title">工作地点</view>
+                <view class="flex-box center">
+                    <view class="address">{{data.jobInfo.address}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="flex-box footerBtns">
+        <button class="share js-chatBtn index" bindtap="redirectIndex">
+            <view class="top">
+                <view class="icon_share">
+                    <image style="" mode="" src="../../images/icon_home@3x.png" binderror="" bindload=""></image>
+                </view>
+            </view>
+            <view class="bottom">
+                首页
+            </view>
+        </button>
+        <button class="share js-chatBtn" open-type="share" wx:if="{{canIUse}}">
+            <view class="top">
+                <view class="icon_share">
+                    <image style="" mode="" src="../../images/icon_share@3x.png" binderror="" bindload=""></image>
+                </view>
+            </view>
+            <view class="bottom">
+                分享
+            </view>
+        </button>
+        <view href="/up/dj-mobile/m-dajie/jobInfo/demo/sendSuccess.html" class="send js-sendBtn {{isDeliver ? 'hasDeliver' : ''}}" bindtap="{{isDeliver ? '' : 'deliver'}}">
+            {{isDeliver ? '已投递' : '立即投递'}}
+        </view>
+    </view>
+</view>
+</view>
+<loading hidden="{{!loadingMore}}">正在加载</loading>

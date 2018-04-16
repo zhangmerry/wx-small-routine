@@ -1,0 +1,85 @@
+.loginBtn{
+	width: 240rpx;
+	height: 80rpx;
+	margin: 0 auto;
+}
+.loginBtn button{
+	background: #04A6C3;
+	border-radius: 4px;
+	width: 240rpx;
+	height: 80rpx;
+	font-size: 32rpx;
+	color: #FFFFFF;
+}
+.user-bottom-box{
+	width: 100%;
+}
+.msg-box{
+	padding-left: 3%;
+	background: #fff;
+}
+.msg-box>view{
+	border-bottom:0.5rpx solid #ebebeb;
+	padding-right: 3%;
+}
+.msg-box>view.user-send,
+.msg-box>view.user-collect{
+	border-bottom:none;
+}
+.msg-box>view,
+.lView,.rView{
+	line-height: 100rpx;
+	height: 100rpx;
+}
+.lView{
+	font-size:30rpx;
+	color: #353535;
+}
+.lView view{
+	display: inline-block;
+}
+.rView{
+	font-size: 28rpx;
+	color: #999999;
+}
+.lView image{
+	width: 32rpx;
+	height: 32rpx;
+	margin:0 20rpx 0 0;
+	display:inline-block;
+	align-items:center;
+	justify-content:center;
+	position: relative;
+	top: 2px;
+}
+.user-resume .lView{
+	width: 50%;
+	float: left;
+	display:flex;
+	align-items:center;
+}
+.user-resume .rView{
+	width: 50%;
+	float: right;
+	text-align: right;
+}
+.user-resume .rView view{
+	display: inline-block;
+	float: right;
+}
+.gText{
+	color: #00C247;
+}
+.rText{
+	color: #ff6600;
+}
+.quit{
+	margin:20rpx 0;
+}
+.quit button{
+	background: #fff;
+	font-size: 30rpx;
+	color: #888888;
+	line-height: 100rpx;
+	height: 100rpx;
+}

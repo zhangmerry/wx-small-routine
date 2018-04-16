@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/jobIndex/jobIndex",
+    "pages/subscriber/subscriber",
+    "pages/feedback/feedback",
+    "pages/mine/mine",
+    "pages/jobDetail/jobDetail",
+    "pages/login/login",
+    "pages/searchResult/searchResult",
+    "pages/resume/resume"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00B6D7",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#00B6D7",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/jobIndex/jobIndex",
+        "text": "职位",
+        "iconPath": "images/icon_tabjob_normal@3x.png",
+        "selectedIconPath": "images/icon_tabjob_pressed@3x.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/icon_tabme_normal@3x.png",
+        "selectedIconPath": "images/icon_tabme_pressed@3x.png"
+      }
+    ]
+  }
+}

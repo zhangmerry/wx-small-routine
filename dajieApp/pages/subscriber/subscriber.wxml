@@ -1,0 +1,76 @@
+<!--pages/subscriber/subscriber.wxml-->
+<import src="../../showToast/showToast.wxml"/>
+<template is="showToast" data="{{showToast: showToast}}"></template>
+<view class="container paddingNone">
+    <view wx:if="{{isEmpty && !loadingMore}}" class="noList">您尚未订阅职位</view>
+    <view wx:else class="subscription-box">
+        <block wx:for="{{data.fullTimeIntentions}}">
+            <view class="subscription-list" data-keyword="{{item.subTile}}" bindtap="searchKeyword">
+                <view class="jobName">{{item.subTile}}</view>
+                <view class="detail-msg">
+                    <view class="ads">{{item.cityName}}</view>
+                    <view class="line" wx:if="{{item.cityName && item.industry}}">|</view>
+                    <view class="exp">{{item.industry}}</view>
+                    <view class="line" wx:if="{{(item.industry && item.salary) || (item.cityName && item.salary)}}">|</view>
+                    <view class="edu">{{item.salary}}</view>
+                </view>
+                <view class="status-box">
+                    <view class="text">今日新增</view>
+                    <view class="{{item.todayCount>0 ? 'num' : ''}}">{{item.todayCount}}</view>
+                    <view class="text">条 共</view>
+                    <view class="num-z">{{item.totalCount}}</view>
+                    <view class="text">条</view>
+                </view>
+            </view>
+        </block>
+        <block wx:for="{{data.partTimeIntentions}}">
+            <view class="subscription-list" data-keyword="{{item.subTile}}" bindtap="searchKeyword">
+                <view class="jobName">{{item.subTile}}</view>
+                <view class="detail-msg">
+                    <view class="ads">{{item.cityName}}</view>
+                    <view class="line" wx:if="{{item.industry && item.cityName}}">|</view>
+                    <view class="exp">{{item.industry}}</view>
+                    <view class="line" wx:if="{{(item.industry && item.salary) || (item.cityName && item.salary)}}">|</view>
+                    <view class="edu">{{item.salary}}</view>
+                </view>
+                <view class="status-box">
+                    <view class="text">今日新增</view>
+                    <view class="{{item.todayCount>0 ? 'num' : ''}}">{{item.todayCount}}</view>
+                    <view class="text">条 共</view>
+                    <view class="num-z">{{item.totalCount}}</view>
+                    <view class="text">条</view>
+                </view>
+            </view>
+        </block>
+        <block wx:for="{{data.internIntentions}}">
+            <view class="subscription-list" data-keyword="{{item.subTile}}" bindtap="searchKeyword">
+                <view class="jobName">{{item.subTile}}</view>
+                <view class="detail-msg">
+                    <view class="ads">{{item.cityName}}</view>
+                    <view class="line" wx:if="{{item.industry && item.cityName}}">|</view>
+                    <view class="exp">{{item.industry}}</view>
+                    <view class="line" wx:if="{{(item.industry && item.salary) || (item.cityName && item.salary)}}">|</view>
+                    <view class="edu">{{item.salary}}</view>
+                </view>
+                <view class="status-box">
+                    <view class="text">今日新增</view>
+                    <view class="{{item.todayCount>0 ? 'num' : ''}}">{{item.todayCount}}</view>
+                    <view class="text">条 共</view>
+                    <view class="num-z">{{item.totalCount}}</view>
+                    <view class="text">条</view>
+                </view>
+            </view>
+        </block>
+    </view>
+
+    <view class="bottomFixed">
+        <image src="/images/img_erweima@3x.png" class="appEwm"></image>
+        <view class="b_f_content">
+            <image src="/images/icon_cut@3x.png"></image>
+            <text>截图并识别二维码，下载大街App，可编辑“我的订阅”</text>
+        </view>
+        <image class="dj_logo" src="/images/icon_appicon@3x.png"></image>
+    </view>
+</view>
+<loading hidden="{{!loadingMore}}">正在加载</loading>
+

@@ -1,0 +1,130 @@
+<!--index.wxml-->
+<import src="../../showToast/showToast.wxml"/>
+<template is="showToast" data="{{showToast: showToast}}"></template>
+<!--注册-->
+<view class="container {{showLoginView?'view_hide':''}}">
+  <view class="loginImg">
+    <image class="loginImg-img" src="../../images/img_logo_login@3x.png"></image>
+  </view>
+
+  <view class="page-body">
+    <view class="btn-area">
+      <view class="tabItem click">
+        <button bindtap="setRegViewShow">注册</button>
+      </view>
+      <view class="tabItem">
+        <button bindtap="setLoginViewShow">登录</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd weui-user">
+          <input class="weui-input" name="username" data-name="username" bindinput="bindKeyInput" value="{{regInfo.username}}" placeholder="请输入姓名" placeholder-class="placeholderTextColor"/>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd weui-user">
+          <input class="weui-input" name="account" data-name="account" bindinput="bindKeyInput" value="{{regInfo.account}}" placeholder="请输入手机号" placeholder-class="placeholderTextColor"/>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd weui-code">
+          <input class="weui-input" name="code" id="code" data-name="code" bindinput="bindKeyInput" value="{{regInfo.code}}" placeholder="请输入收到的验证码" placeholder-class="placeholderTextColor"/>
+          <button class="{{!showRegCode?'view_hide':''}}" bindtap="getCode">获取验证码</button>
+          <button class="fcolor {{showRegCode?'view_hide':''}}">{{verifyCodeTime}}</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="page-section page-password">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd weui-user">
+          <input class="weui-input" password="true" data-name="password" bindinput="bindKeyInput" value="{{regInfo.password}}" name="password" placeholder="请输入密码" placeholder-class="placeholderTextColor"/>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd ">
+          <input class="weui-input" password="true" data-name="rPassword" bindinput="bindKeyInput" value="{{regInfo.rPassword}}" name="rPassword" placeholder="请再次输入密码" placeholder-class="placeholderTextColor"/>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="page-body">
+    <view class="btn-area" id="buttonContainer">
+      <button type="primary" bindtap="regBtnClick">立即注册</button>
+    </view>
+  </view>
+
+</view>
+
+
+<!--登录-->
+<view class="container {{!showLoginView?'view_hide':''}}">
+  <view class="loginImg">
+    <image class="loginImg-img" src="../../images/img_logo_login@3x.png"></image>
+  </view>
+
+  <view class="page-body">
+    <view class="btn-area">
+      <view class="tabItem">
+        <button bindtap="setRegViewShow">注册</button>
+      </view>
+      <view class="tabItem click">
+        <button bindtap="setLoginViewShow">登录</button>
+      </view>
+    </view>
+  </view>
+
+  <form bindsubmit="logFormSubmit">
+    <view class="page-section {{!showPasswordView?'view_hide':''}}">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd weui-user weui-user-icon">
+            <image class="weui-user-icon-img" src="../../images/icon_accounts@3x.png"></image>
+            <input class="weui-input" name="account" data-name="account" bindinput="bindKeyInput" value="{{logInfo.account}}" placeholder="手机号/邮箱" placeholder-class="placeholderTextColor"/>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd weui-psw-icon">
+            <image class="weui-user-icon-img" src="../../images/icon_password@3x.png"></image>
+            <input class="weui-input" password="true" value="{{logInfo.password}}" name="password" placeholder="请输入密码" placeholder-class="placeholderTextColor"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section {{showPasswordView?'view_hide':''}}">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd weui-user weui-user-icon">
+            <input class="weui-input" name="phone" data-name="phone" value="{{phone}}" bindinput="bindKeyInput" placeholder="请输入手机号" placeholder-class="placeholderTextColor"/>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd weui-code">
+            <input class="weui-input" name="code" value="{{valiCode}}" placeholder="请输入收到的验证码" placeholder-class="placeholderTextColor"/>
+            <button class="{{!showLogCode?'view_hide':''}}" bindtap="getCode">获取验证码</button>
+            <button class="fcolor {{showLogCode?'view_hide':''}}">{{verifyCodeTime}}</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-body">
+      <view class="btn-area" id="buttonContainer" bindtap="redirect">
+        <button formType="submit" type="primary">登录</button>
+      </view>
+
+      <view class="weui-buttom-tip" bindtap="setPasswordView">
+        {{showPasswordView?'手机验证码登录':'帐号密码登录'}}
+      </view>
+    </view>
+  </form>
+
+
+</view>
+<loading hidden="{{!loadingMore}}">正在登录</loading>

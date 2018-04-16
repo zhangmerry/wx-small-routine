@@ -1,0 +1,185 @@
+<!--pages/resume/resume.wxml-->
+<import src="../../showToast/showToast.wxml"/>
+<template is="showToast" data="{{showToast: showToast}}"></template>
+<view>
+    <view wx:if="{{!loadingMore}}" class="{{data.isCompleted == 1 ? 'container paddingNone' : ''}}">
+        <view class="user-top-box">
+            <view class="topImg">
+                <image class="loginImg-img" src="{{data.baseInfo.avatar}}">
+                </image>
+            </view>
+            <view class="user-name" wx:if="{{data.baseInfo.name}}">
+                <view class="name-text">{{data.baseInfo.name}}</view>
+            </view>
+            <view class="user-bottom">
+                <view class="commpany-text" wx:if="{{data.baseInfo.corpName}}">{{data.baseInfo.corpName}}</view>
+                <view class="center-line" wx:if="{{data.baseInfo.corpName && data.baseInfo.position}}">|</view>
+                <view class="dep-text" wx:if="{{data.baseInfo.position}}">{{data.baseInfo.position}}</view>
+                <view class="center-line" wx:if="{{data.baseInfo.position && data.baseInfo.positionLevel}}">|</view>
+                <view class="job-text" wx:if="{{data.baseInfo.positionLevel}}">{{data.baseInfo.positionLevel}}</view>
+            </view>
+        </view>
+        <!--简历-完整-->
+        <block wx:if="{{data.isCompleted == 1}}">
+            <view class="mine-msg" wx:if="{{data.baseInfo.statusName}}">
+                <view class="all-list">
+                    <view class="left-tit">工作状态</view>
+                    <view class="right-msg">{{data.baseInfo.statusName}}</view>
+                </view>
+                <view class="all-list" wx:if="{{data.baseInfo.workYearsName}}">
+                    <view class="width-half">
+                        <view class="left-tit">工作经验</view>
+                        <view class="right-msg">{{data.baseInfo.workYearsName}}</view>
+                    </view>
+                    <view class="width-half" wx:if="{{data.baseInfo.liveCityName}}">
+                        <view class="left-tit">所在城市</view>
+                        <view class="right-msg">{{data.baseInfo.liveCityName}}</view>
+                    </view>
+                </view>
+                <view class="all-list">
+                    <view class="width-half" wx:if="{{data.baseInfo.domicileName}}">
+                        <view class="left-tit">户\r\n\r\n\r\n\r\n\r\n\r\n口</view>
+                        <view class="right-msg">{{data.baseInfo.domicileName}}</view>
+                    </view>
+                    <view class="width-half" wx:if="{{data.baseInfo.politicalName}}">
+                        <view class="left-tit">政治面貌</view>
+                        <view class="right-msg">{{data.baseInfo.politicalName}}</view>
+                    </view>
+                </view>
+                <view class="all-list" wx:if="{{data.baseInfo.idCardNum}}">
+                    <view class="left-tit">身份证号</view>
+                    <view class="right-msg">{{data.baseInfo.idCardNum}}</view>
+                </view>
+                <view class="all-list" wx:if="{{data.baseInfo.qq}}">
+                    <view class="left-tit">Q\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nQ</view>
+                    <view class="right-msg">{{data.baseInfo.qq}}</view>
+                </view>
+                <view class="all-list" wx:if="{{data.baseInfo.mobile}}">
+                    <view class="left-tit">手\r\n\r\n\r\n\r\n\r\n\r\n机</view>
+                    <view class="right-msg">{{data.baseInfo.mobile}}</view>
+                </view>
+                <view class="all-list" wx:if="{{data.baseInfo.email}}">
+                    <view class="left-tit">邮\r\n\r\n\r\n\r\n\r\n\r\n箱</view>
+                    <view class="right-msg">{{data.baseInfo.email}}</view>
+                </view>
+                <view class="all-list">
+                    <view class="width-half" wx:if="{{data.baseInfo.height}}">
+                        <view class="left-tit">身\r\n\r\n\r\n\r\n\r\n\r\n高</view>
+                        <view class="right-msg">{{data.baseInfo.height}}</view>
+                    </view>
+                    <view class="width-half" wx:if="{{data.baseInfo.weight}}">
+                        <view class="left-tit">体\r\n\r\n\r\n\r\n\r\n\r\n重</view>
+                        <view class="right-msg">{{data.baseInfo.weight}}</view>
+                    </view>
+                </view>
+
+                <view class="all-list">
+                    <view class="width-half" wx:if="{{data.baseInfo.nation}}">
+                        <view class="left-tit">民\r\n\r\n\r\n\r\n\r\n\r\n族</view>
+                        <view class="right-msg">{{data.baseInfo.nation}}</view>
+                    </view>
+                    <view class="width-half" wx:if="{{data.baseInfo.marriageName}}">
+                        <view class="left-tit">婚姻状况</view>
+                        <view class="right-msg">{{data.baseInfo.marriageName}}</view>
+                    </view>
+                </view>
+
+                <view class="all-list ads" wx:if="{{data.baseInfo.address}}">
+                    <view class="left-tit">通讯地址</view>
+                    <view class="right-msg">{{data.baseInfo.address}}</view>
+                </view>
+            </view>
+
+            <view class="mine-msg asp-msg">
+                <block wx:if="{{data.intentionInfo.huntJobType}}">
+                    <view class="title">求职意愿</view>
+                    <view class="all-list">
+                        <view class="left-tit">求职类型</view>
+                        <view class="right-msg">{{data.intentionInfo.huntJobType}}
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{data.intentionInfo.positionFunctionStr}}">
+                    <view class="all-list ads truncate">
+                        <view class="left-tit">期望职业</view>
+                        <view class="right-msg">{{data.intentionInfo.positionFunctionStr}}</view>
+                    </view>
+                </block>
+                <block wx:if="{{data.intentionInfo.positionIndustryStr}}">
+                    <view class="all-list ads truncate">
+                        <view class="left-tit">期望行业</view>
+                        <view class="right-msg">{{data.intentionInfo.positionIndustryStr}}
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{data.intentionInfo.cityStr}}">
+                    <view class="all-list">
+                        <view class="left-tit">期望城市</view>
+                        <view class="right-msg">{{data.intentionInfo.cityStr}}
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{data.intentionInfo.salaryArea}}">
+                    <view class="all-list">
+                        <view class="left-tit">期望月薪</view>
+                        <view class="right-msg">{{data.intentionInfo.salaryArea}}
+                        </view>
+                    </view>
+                </block>
+            </view>
+
+            <view class="last">
+                <view class="detail-box">
+                    <view class="detail-left">
+                        <image style="" mode="" src="../../images/icon_no1@3x.png" binderror="" bindload=""></image>
+                        <view></view>
+                        <image style="" mode="" src="../../images/icon_no2@3x.png" binderror="" bindload=""></image>
+                    </view>
+                    <view class="detail-right">
+                        <view class="text-first">
+                            <view>使用电脑浏览器打开</view>
+                            <view class="blue-text">sao.dajie.com</view>
+                        </view>
+                        <image style="" mode="" src="../../images/img_search@3x.png" binderror="" bindload=""></image>
+                        <view class="text-second">点击按钮扫描电脑上的二维码，可在网页中编辑个人简历</view>
+                    </view>
+                </view>
+
+                <view class="code-btn background" bindtap="canCode">
+                    <image style="" mode="" src="../../images/icon_scan@3x.png" binderror="" bindload=""></image>
+                    <view>点击扫码</view>
+                </view>
+            </view>
+        </block>
+        <!-- 简历-不完整-->
+        <block wx:if="{{data.isCompleted != 1 && data.isCompleted != undefined}}">
+            <view class="yellow-tips">
+                <view>您的简历完整度为 {{data.resumeStatus}}%，需要完善后再投递</view>
+            </view>
+
+            <view class="detail-box">
+                <view class="detail-left">
+                    <image style="" mode="" src="../../images/icon_no1@3x.png" binderror="" bindload=""></image>
+                    <view></view>
+                    <image style="" mode="" src="../../images/icon_no2@3x.png" binderror="" bindload=""></image>
+                </view>
+                <view class="detail-right">
+                    <view class="text-first">
+                        <view>使用电脑浏览器打开</view>
+                        <view class="blue-text">sao.dajie.com</view>
+                    </view>
+                    <image style="" mode="" src="../../images/img_search@3x.png" binderror="" bindload=""></image>
+                    <view class="text-second">点击按钮扫描电脑上的二维码，可在网页中编辑个人简历
+                    </view>
+                </view>
+            </view>
+
+            <view class="code-btn" bindtap="canCode">
+                <image style="" mode="" src="../../images/icon_scan@3x.png" binderror="" bindload=""></image>
+                <view>点击扫码</view>
+            </view>
+        </block>
+    </view>
+</view>
+<loading hidden="{{!loadingMore}}">正在加载</loading>
+

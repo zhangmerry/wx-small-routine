@@ -1,0 +1,83 @@
+<!--index.wxml-->
+<import src="../../showToast/showToast.wxml"/>
+<template is="showToast" data="{{showToast: showToast}}"></template>
+<view class="container paddingNone" wx:if="{{!loadingMore && loadingMore != null}}">
+
+    <view class="user-top-box">
+        <view class="topImg">
+            <image class="loginImg-img" src="{{isLogin ? data.avatar : '../../images/img_head_male@3x.png'}}">
+            </image>
+        </view>
+        <!--已登录-->
+        <block wx:if="{{isLogin}}">
+            <view class="user-name">
+                <view class="name-text">
+                    {{data.name}}
+                </view>
+            </view>
+            <view class="user-bottom">
+                <view class="commpany-text" wx:if="{{data.schoolOrCorp}}">
+                    {{data.schoolOrCorp}}
+                </view>
+                <view class="center-line" wx:if="{{data.schoolOrCorp && data.majorOrPosition}}">|</view>
+                <view class="job-text" wx:if="{{data.majorOrPosition}}">
+                    {{data.majorOrPosition}}
+                </view>
+            </view>
+        </block>
+        <!--未登录-->
+        <block wx:if="{{!isLogin && isLogin != null}}">
+            <view class="user-bottom">
+                <view class="loginBtn" bindtap="redirectLogin">
+                    <button>登录/注册</button>
+                </view>
+            </view>
+        </block>
+    </view>
+
+    <view class="user-bottom-box">
+        <view class='msg-box'>
+            <view class="user-resume" bindtap="toResumePage">
+                <view class="lView">
+                    <image style="" mode="" src="../../images/icon_myprofile@3x.png" binderror="" bindload=""></image>
+                    <view>
+                        个人简历
+                    </view>
+                </view>
+                <view class="rView" wx:if="{{isLogin}}">
+                    <view class="{{data.isCompleted == 1 ? 'gText' : 'rText'}}">
+                        {{data.resumeStatus}}%
+                    </view>
+                    <view class="hText">
+                        简历完整度
+                    </view>
+                </view>
+            </view>
+
+            <view class="user-sub"  bindtap="toSubscriberPage">
+                <view class="lView">
+                    <image style="" mode="" src="../../images/icon_mytake@3x.png" binderror="" bindload=""></image>
+                    <view>
+                        我的订阅
+                    </view>
+                </view>
+            </view>
+
+            <view class="user-send"  bindtap="toFeedbackPage">
+                <view class="lView">
+                    <image style="" mode="" src="../../images/icon_myreply@3x.png" binderror="" bindload=""></image>
+                    <view>
+                        投递反馈
+                    </view>
+                </view>
+            </view>
+
+        </view>
+
+        <view class="quit" wx:if="{{isLogin}}" bindtap="loginOut">
+            <button>退出当前账号</button>
+        </view>
+    </view>
+
+</view>
+<loading hidden="{{!loadingMore}}">正在加载</loading>

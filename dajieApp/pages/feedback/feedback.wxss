@@ -1,0 +1,69 @@
+/* pages/feedback/feedback.wxss */
+.deliver-box{
+	width: 100%;
+	margin-bottom: 180rpx;
+}
+.deliver-list{
+	margin-top: 20rpx;
+	background: #fff;
+	padding: 30rpx 0;
+	width: 100%;
+	float: left;
+}
+.deliver-left{
+	width: 75rpx;
+	height: 67rpx;
+	margin: 0 30rpx;
+	border: 0.5rpx solid #DBDBDB;
+	border-radius: 2px;
+	float: left;
+}
+.deliver-left image{
+	width: 100%;
+	height: 100%;
+}
+.deliver-middle{
+	float: left;
+	width: 400rpx;
+	height: auto;
+	font-size: 32rpx;
+	line-height: 45rpx;
+	color: #333333;
+}
+.company{
+	font-size: 26rpx;
+	color: #333333;
+}
+.company,.job-name{
+	overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.deliver-right{
+	float: right;
+	width: 162rpx;
+	text-align: center;
+	margin-right: 20rpx;
+}
+.time{
+	font-size: 26rpx;
+	color: #B2B2B2;
+	text-align: center;
+}
+.status{
+	font-size:20rpx;
+	color: #00C97B;
+	border: 0.5rpx solid #00C97B;
+	border-radius: 1.5px;
+	width: 137rpx;
+	margin: 0 10rpx;
+	display: inline-block;
+}
+.status.no-pass{
+	border-color: #EE6644;
+	color: #EE6644;
+}
+.status.give-up{
+	border-color: #B3B3B3;
+	color: #B3B3B3;
+}

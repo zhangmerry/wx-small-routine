@@ -1,0 +1,33 @@
+<!--pages/feedback/feedback.wxml-->
+<import src="../../showToast/showToast.wxml"/>
+<template is="showToast" data="{{showToast: showToast}}"></template>
+<view class="container paddingNone">
+    <view wx:if="{{list<=0 && !loadingMore}}" class="noList">您尚未投递职位</view>
+    <view class="deliver-box" wx:else>
+    	<block wx:for="{{list}}">
+        <view class="deliver-list">
+            <view class="deliver-left">
+                <image style="" mode="" src="{{item.corpLogo}}" binderror="" bindload=""></image>
+            </view>
+            <view class="deliver-middle">
+                <view class="job-name">{{item.jobName}}</view>
+                <view class="company">{{item.corpName}}</view>
+            </view>
+            <view class="deliver-right">
+                <view class="time">{{item.feedBackDate}}</view>
+                <view class='status'>{{item.feedBackDes}}</view>
+            </view>
+        </view>
+        </block>
+    </view>
+
+    <view class="bottomFixed">
+        <image src="/images/img_erweima@3x.png" class="appEwm"></image>
+        <view class="b_f_content">
+            <image src="/images/icon_cut@3x.png"></image>
+            <text>截图并识别二维码，下载大街App，查看更多投递信息</text>
+        </view>
+        <image class="dj_logo" src="/images/icon_appicon@3x.png"></image>
+    </view>
+</view>
+<loading hidden="{{!loadingMore}}">正在加载</loading>
